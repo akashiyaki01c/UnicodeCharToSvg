@@ -1,5 +1,5 @@
-const startCharCode = 0xA000;
-const endCharCode = 0xC000;
+const startCharCode = 0x4E00;
+const endCharCode = 0x0A00;
 const charWidthPx = 24;
 const rowCount = 16;
 
