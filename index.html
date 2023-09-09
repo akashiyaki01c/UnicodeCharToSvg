@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <div id="root"></div>
+    <script src="make.js"></script>
+    <script type='text/javascript'>
+        function handleDownload() {
+            var blob = new Blob([ document.querySelector("#root").innerHTML ], { "type" : "image/svg+xml" });
+
+            if (window.navigator.msSaveBlob) { 
+                window.navigator.msSaveBlob(blob, "test.svg"); 
+
+                window.navigator.msSaveOrOpenBlob(blob, "test.svg"); 
+            } else {
+                document.getElementById("download").href = window.URL.createObjectURL(blob);
+            }
+        }
+    </script>
+    <a id="download" href="#" download="test.svg" onclick="handleDownload()">ダウンロード</a>
+</body>
+</html>
